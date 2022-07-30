@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@types/moo": "^0.5.5",
+    "@types/nearley": "^2.11.2",
+    "jest": "^28.1.3",
+    "jest-extended": "^3.0.1",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.3.3",
+    "ts-jest": "^28.0.7",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  },
+  "scripts": {
+    "build": "mkdirp gen/SyntaxAnalysis && nearleyc src/SyntaxAnalysis/Expression.ne -o gen/SyntaxAnalysis/Expression.ts && nearleyc src/SyntaxAnalysis/Statement.ne -o gen/SyntaxAnalysis/Statement.ts && webpack",
+    "test": "jest",
+    "clean": "rimraf build gen",
+    "clean-deps": "npm run clean && rimraf node_modules package-lock.json"
+  },
+  "dependencies": {
+    "indent-textarea": "^2.1.0",
+    "moo": "^0.5.1",
+    "nearley": "^2.20.1"
+  }
+}
